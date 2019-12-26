@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MVVM</string>
+
+    <string name="common_error_net">网络异常,请检查网络连接！</string>
+    <string name="common_error_net_time_out">网络超时</string>
+    <string name="common_error_do_something_fail">操作异常</string>
+    <string name="common_error_request">请求错误</string>
+    <string name="common_error_server">服务器错误</string>
+    <string name="common_error_server_json">服务器错误:Json格式错误</string>
+</resources>

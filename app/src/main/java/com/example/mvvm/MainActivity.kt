@@ -1,13 +1,12 @@
 package com.example.mvvm
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.mvvm.bean.ArticleData
 import com.example.mvvm.bean.LoadState
-import com.example.mvvm.common.loadState
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -29,7 +28,7 @@ class MainActivity : AppCompatActivity() {
      * 加载状态变化
      */
     private fun changeLoadState(loadState: LoadState) {
-        pbProgress.visibility = when(loadState){
+        pbProgress.visibility = when (loadState) {
             is LoadState.Loading -> {
                 tvData.text = ""
                 View.VISIBLE
@@ -42,7 +41,7 @@ class MainActivity : AppCompatActivity() {
      * 显示数据
      */
     private fun showData(data: ArticleData) {
-        if(data.data.isEmpty()) return
+        if (data.data.isEmpty()) return
         tvData.text = "id: ${data.data[0].id} name ${data.data[0].name}"
     }
 }

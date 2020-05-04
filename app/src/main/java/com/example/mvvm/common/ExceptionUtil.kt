@@ -1,11 +1,9 @@
-package com.example.mvvm.bean
+package com.example.mvvm.common
 
 import android.accounts.NetworkErrorException
 import androidx.annotation.StringRes
 import com.example.mvvm.MyApplication
 import com.example.mvvm.R
-import com.example.mvvm.common.ApiException
-import com.example.mvvm.common.ToastUtils
 import com.google.gson.JsonSyntaxException
 import com.google.gson.stream.MalformedJsonException
 import retrofit2.HttpException
@@ -28,12 +26,25 @@ object ExceptionUtil {
                 catchHttpException(e.code())
                 return
             }
-            is SocketTimeoutException -> showToast(R.string.common_error_net_time_out)
-            is UnknownHostException, is NetworkErrorException -> showToast(R.string.common_error_net)
-            is MalformedJsonException, is JsonSyntaxException -> showToast(R.string.common_error_server_json)
+            is SocketTimeoutException -> showToast(
+                R.string.common_error_net_time_out
+            )
+            is UnknownHostException, is NetworkErrorException -> showToast(
+                R.string.common_error_net
+            )
+            is MalformedJsonException, is JsonSyntaxException -> showToast(
+                R.string.common_error_server_json
+            )
             // 接口异常
-            is ApiException -> showToast(e.msg, e.errorCode)
-            else -> showToast("${MyApplication.instance.getString(R.string.common_error_do_something_fail)}：${e::class.java.name}")
+            is ApiException -> showToast(
+                e.msg,
+                e.errorCode
+            )
+            else -> showToast(
+                "${MyApplication.instance.getString(
+                    R.string.common_error_do_something_fail
+                )}：${e::class.java.name}"
+            )
         }
     }
 
@@ -42,14 +53,22 @@ object ExceptionUtil {
      */
     fun catchHttpException(errorCode: Int) {
         if (errorCode in 200 until 300) return// 成功code则不处理
-        showToast(catchHttpExceptionCode(errorCode), errorCode)
+        showToast(
+            catchHttpExceptionCode(
+                errorCode
+            ), errorCode
+        )
     }
 
     /**
      * toast提示
      */
     private fun showToast(@StringRes errorMsg: Int, errorCode: Int = -1) {
-        showToast(MyApplication.instance.getString(errorMsg), errorCode)
+        showToast(
+            MyApplication.instance.getString(
+                errorMsg
+            ), errorCode
+        )
     }
 
     /**

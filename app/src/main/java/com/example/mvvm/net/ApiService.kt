@@ -1,5 +1,7 @@
 package com.example.mvvm.net
 
+import com.example.mvvm.base.NetResponse
+import com.example.mvvm.bean.Article
 import com.example.mvvm.bean.ArticleData
 import com.example.mvvm.bean.BaseBean
 import retrofit2.http.FieldMap
@@ -27,4 +29,7 @@ interface ApiService {
 //    @FormUrlEncoded
     @GET("wxarticle/chapters/json")
     suspend fun getWXArticle(): ArticleData
+
+    @GET("article/list/1/json")
+    suspend fun getArticle(): NetResponse<Article>
 }

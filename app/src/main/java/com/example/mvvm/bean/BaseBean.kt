@@ -7,3 +7,4 @@ open class BaseBean {
     var errorCode = -1
     var errorMsg = ""
 }
+

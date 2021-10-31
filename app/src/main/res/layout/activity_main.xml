@@ -8,23 +8,43 @@
 
     <TextView
         android:id="@+id/tvData"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btGetData"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:text="获取数据"
+        android:layout_marginBottom="160dp"
+        android:text="获取数据，单个请求，data是一个JsonObject"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btGetDataList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="获取数据，单个请求，data是一个JsonArray"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btGetData" />
+
+    <Button
+        android:id="@+id/btZipData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="调用两个接口请求数据"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btGetDataList" />
 
     <ProgressBar
         android:id="@+id/pbProgress"
